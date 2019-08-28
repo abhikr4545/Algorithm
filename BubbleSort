@@ -1,0 +1,78 @@
+#include<iostream>
+using namespace std;
+int i,j;
+
+void bubbleSort(int a[],int size)
+{
+    int round=0;
+    for(i=0;i<size;i++)
+    {
+        round++;
+        for(j=0;j<size-i-1;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                int temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+
+    }
+cout<<"Number of Rounds in optimized sorting"<<round<<endl;
+
+}
+
+void optimizedbubbleSort(int a[],int size)
+{
+    int flag,round=0;
+    for(i=0;i<size;i++)
+    {
+        round++;
+        flag=0;
+
+        for(j=0;j<size-i-1;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                flag=1;
+
+                int temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+        if(flag==0)
+        {
+            break;
+        }
+    }
+    cout<<"\nNumber of rounds for oBubbleSort:\n"<<round<<endl;
+
+}
+
+int main()
+{
+    int size,arr[100];
+    cout<<"How many elements ?"<<endl;
+    cin>>size;
+    cout<<"Enter elements"<<endl;
+    for(i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    bubbleSort(arr,size);
+    cout<<"\nArray after sorting:\n";
+    for(i=0;i<size;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+
+    optimizedbubbleSort(arr,size);
+    cout<<"\nArray after optimized sorting:\n";
+
+    for(i=0;i<size;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
