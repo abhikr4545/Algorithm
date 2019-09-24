@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+int square(int);
+int count_num(int);
+
+int main()
+{
+    int num,v1,v2,tik=0;
+    cout<<"Enter the number\n";
+    cin>>num;
+    while(v2!=1)
+    {
+        v1=square(num);
+        tik++;
+        v2=count_num(v1);
+    }
+        if ((tik<=9)&&(v2=1))
+        {
+            cout<<"The number is happy number\n";
+            cout<<"Number of iterations"<<" "<<":"<<" "<<tik;
+        }
+        else
+        {
+            cout<<"Number is not a happy number";
+        }
+}
+
+
+int square(int num)
+{
+    int res;
+    res = num*num;
+    return res;
+}
+
+int count_num(int res)
+{
+    int a[100],val=0,i=0,j,sum=0;
+    while(res!=0)
+    {
+        int dup=res;
+        res = res%10;
+        val++;
+        a[i]=res;
+        i++;
+        res = dup/10;
+    }
+
+    for(j=val-1;j>=0;j--)
+    {
+        sum=sum+(a[j]*a[j]);
+    }
+    return sum;
+}
