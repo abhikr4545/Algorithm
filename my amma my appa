@@ -11,7 +11,7 @@ int main()
 
 	vector <string> list,input;
 
-	list.push_back("creative");
+	list.push_back("leader");
 	list.push_back("tape");
 	list.push_back("came");
 	list.push_back("tape");
