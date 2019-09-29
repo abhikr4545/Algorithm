@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+
+int main()
+{
+	int i,num,len;
+	string str,str2;
+
+	vector <string> list,input;
+
+	list.push_back("creative");
+	list.push_back("tape");
+	list.push_back("came");
+	list.push_back("tape");
+	
+	for (i = 0; i < list.size(); i++) {
+		sort(list[i].begin(), list[i].end());
+	}
+	
+	cout << "Enter the word to check for anagram\n";
+	cin >> str;
+	input.push_back(str);
+	
+	str2 = str;
+
+	sort(input[0].begin(), input[0].end());
+
+	
+	for (i = 0; i < list.size(); i++)
+	{
+		if (input[0].length() != list[i].length())
+			continue;
+
+		else if (input[0] == list[i]) {
+			cout << str2 <<" "<< "is a anagram \n";
+		}
+
+		else {
+			cout << str2 << " " << "is not a anagram\n";
+			break;
+		}
+	}
+}
